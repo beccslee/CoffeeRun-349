@@ -1,4 +1,4 @@
-(function (window) {
+(() => {
     'use strict';
     let App = window.App || {};
 
@@ -21,12 +21,34 @@
             console.log('Truck # ', this.truckId, ' has pending orders: ');
             customerIdArray.forEach(id => {
                 console.log(this.db.get(id));
-            })
+            });
+        }
+
+        static runTests(truck) {
+            truck.createOrder({
+                emailAddress: 'dr@no.com',
+                coffee: 'decaf'
+            });
+            truck.createOrder({
+                emailAddress: 'me@goldfinger.com',
+                coffee: 'double mocha'
+            });
+            truck.createOrder({
+                emailAddress: 'm@bond.com',
+                coffee: 'earl grey'
+            });
+            truck.printOrders();
+
+            truck.deliverOrder('m@bond.com');
+            truck.deliverOrder('dr@no.com');
+            truck.printOrders();
+
+            truck.deliverOrder('me@bond.com');
+            truck.printOrders();
         }
     }
 
-
     App.Truck = Truck;
     window.App = App;
-    
+
 })(window);

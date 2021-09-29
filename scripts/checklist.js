@@ -1,4 +1,4 @@
-(function (window) {
+(() => {
     'use strict';
     let App = window.App || {};
     let $ = window.jQuery;
@@ -27,12 +27,11 @@
         }
         removeRow(email) {
             this.$element
-            .find('[value="' + email + '"]')
-            .closest('[data-coffee-order="checkbox"]')
-            .remove();
+                .find('[value="' + email + '"]')
+                .closest('[data-coffee-order="checkbox"]')
+                .remove();
         }
     }
-
 
     class Row {
         constructor(coffeeOrder) {

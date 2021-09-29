@@ -1,4 +1,4 @@
-(function () {
+(() => {
     'use strict';
     var App = window.App || {};
     var Validation = {

@@ -1,4 +1,4 @@
-(function (window) {
+(() => {
     'use strict';
     let App = window.App || {};
     let $ = window.jQuery;
@@ -16,14 +16,12 @@
         }
 
         addSubmitHandler(fn) {
-            console.log('setting submit handler for form');
-            this.$formElement.on('submit', function(event) {
+            this.$formElement.on('submit', function (event) {
                 event.preventDefault();
-
                 let data = {};
+
                 $(this).serializeArray().forEach(item => {
                     data[item.name] = item.value;
-                    console.log(item.name, ' is ', item.value);
                 });
                 console.log(data);
                 fn(data);
